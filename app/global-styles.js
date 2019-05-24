@@ -8,15 +8,17 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto', sans-serif;
   }
 
   body.fontLoaded {
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Open Sans', 'Montserrat', Helvetica, Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
   }
 
   #app {
-    background-color: #fafafa;
+    background-color: lavender;
     min-height: 100%;
     min-width: 100%;
   }
