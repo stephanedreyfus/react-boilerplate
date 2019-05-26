@@ -4,12 +4,9 @@
  * following article: https://medium.com/@olinations/build-a-crud-template-using-react-bootstrap-express-postgres-9f84cc444438
  *  ---
  * db name = phrases
- * Test db name = phrases_test */
+ * Test db name = phrases-test */
 
 const express = require('express');
-
-//  using process.env to keep private variables, such as secret key, secret
-require('dotenv').config();
 
 // Express Middleware
 const helmet = require('helmet'); // Creates protective headers
@@ -21,10 +18,13 @@ const morgan = require('morgan'); // request logging
 const db = require('knex')({
   client: 'pg',
   connection: {
-    connectionSting: process.env.DATABASE_URL,
+    connectionSting: DB_URI,
     ssl: true,
   },
 });
+
+// Bring in db port and db url
+const { PORT, DB_URI } = require('./config');
 
 // Controllers
 const main = require('./controllers/main');
@@ -54,7 +54,7 @@ app.post('/', (req, res) => main.addPhrase(req, res, db));
 app.get('/phrases', (req, res) => main.getPhrases(req, res, db));
 
 // App server connection
-app.listen(process.env.PORT || 3001, () => {
+app.listen(PORT || 3001, () => {
   // eslint-disable-next-line no-console
-  console.log(`Party has started on port ${process.env.PORT || 3001}`);
+  console.log(`Party has started on port ${PORT || 3001}`);
 });
