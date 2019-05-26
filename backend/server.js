@@ -50,8 +50,8 @@ app.use(bodyParser.json());
 app.use(morgan('combined'));
 
 // Routes
-app.get('/phrases', (req, res) => main.getPhrases(req, res, db));
 app.post('/', (req, res) => main.addPhrase(req, res, db));
+app.get('/phrases', (req, res) => main.getPhrases(req, res, db));
 
 // App server connection
 app.listen(process.env.PORT || 3001, () => {
