@@ -1,20 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const mainColor = 'mediumvioletred';
+
 const Wrapper = styled.section`
   background: #e0e2e5;
-  min-height: 80%;
+  height: 20em;
   width: 40%;
   border-radius: 6px;
-  border: 0.1em solid mediumvioletred;
-  box-shadow: -2em -2em;
+  border: 0.1em solid ${mainColor};
+  box-shadow: 5px 6px 8px ${mainColor};
+  margin: 3em auto auto auto;
 `;
 
 const DisplayTitle = styled.div`
   font-family: 'Montserrat', sans-serif;
-  color: mediumvioletred;
+  color: ${mainColor};
   text-align: center;
-  border-bottom: 0.1em solid mediumvioletred;
+  border-bottom: 0.1em solid ${mainColor};
   margin: 1em 3em;
 `;
 

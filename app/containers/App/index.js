@@ -18,7 +18,7 @@ import GlobalStyle from '../../global-styles';
 
 export default function App() {
   return (
-    <div>
+    <div className="app-div">
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/phrases" component={Phrases} />

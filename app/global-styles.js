@@ -23,6 +23,10 @@ const GlobalStyle = createGlobalStyle`
     min-width: 100%;
   }
 
+  .app-div {
+    display: flex;
+  }
+
   p,
   label {
     font-family: Georgia, Times, 'Times New Roman', serif;
