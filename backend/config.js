@@ -17,7 +17,7 @@ if (process.env.NODE_ENV === 'test') {
 // eslint-disable-next-line no-console
 console.log('Using database', DB_URI);
 
-export default {
+module.exports = {
   SECRET,
   PORT,
   DB_URI,

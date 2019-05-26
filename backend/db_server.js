@@ -14,17 +14,18 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
 
-// db connection
+// Bring in db port and db url
+const { PORT, DB_URI } = require('./config');
+
+// db connection: : DB_URI has to come first so that it can be properly declared.
+// eslint-disable-next-line import/order
 const db = require('knex')({
   client: 'pg',
   connection: {
     connectionSting: DB_URI,
-    ssl: true,
+    ssl: false,
   },
 });
-
-// Bring in db port and db url
-const { PORT, DB_URI } = require('./config');
 
 // Controllers
 const main = require('./controllers/main');

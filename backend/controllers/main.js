@@ -11,7 +11,7 @@ const addPhrase = (req, res, db) => {
     .then(item => {
       res.json(item);
     })
-    .catch(err => res.status(400).json({ dbError: 'db error' }));
+    .catch(err => res.status(400).json({ dbError: `db error: ${err}` }));
 };
 
 const getPhrases = (req, res, db) => {
@@ -24,7 +24,7 @@ const getPhrases = (req, res, db) => {
         res.json({ phrasesExist: 'false' });
       }
     })
-    .catch(err => res.status(400).json({ dbError: 'db error' }));
+    .catch(err => res.status(400).json({ dbError: `db error: ${err}` }));
 };
 
 module.exports = {
