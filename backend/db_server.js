@@ -9,10 +9,10 @@
 const express = require('express');
 
 // Express Middleware
-const helmet = require('helmet'); // Creates protective headers
-const bodyParser = require('body-parser'); // For converting response formats
-const cors = require('cors'); // for controlling SOP
-const morgan = require('morgan'); // request logging
+const helmet = require('helmet');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const morgan = require('morgan');
 
 // db connection
 const db = require('knex')({
@@ -33,7 +33,7 @@ const main = require('./controllers/main');
 const app = express();
 
 // App Middleware
-const whitelist = ['http://localhost:3001'];
+const whitelist = ['http://localhost:3000'];
 const corsOptions = {
   origin(origin, callback) {
     if (whitelist.indexOf(origin) !== -1 || !origin) {
