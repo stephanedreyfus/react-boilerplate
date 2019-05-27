@@ -6,7 +6,7 @@ const addPhrase = (req, res, db) => {
   const { phrase } = req.body;
   const added = new Date();
   db('phrases')
-    .insert({ phrase, added })
+    .insert(phrase, added)
     .returning('*')
     .then(item => {
       res.json(item);
@@ -17,6 +17,7 @@ const addPhrase = (req, res, db) => {
 const getPhrases = (req, res, db) => {
   db.select('*')
     .from('phrases')
+    .then(console.log('inside then, what is items:', res))
     .then(items => {
       if (items.length) {
         res.json(items);
