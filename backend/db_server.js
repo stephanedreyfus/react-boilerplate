@@ -23,7 +23,7 @@ const db = require('knex')({
   client: 'pg',
   connection: {
     connectionSting: DB_URI,
-    ssl: false,
+    ssl: true,
   },
 });
 
