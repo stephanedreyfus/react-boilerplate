@@ -1,3 +1,31 @@
+# Notes and Modifications Pertaining to DMI Takehome
+
+### Basic Tasks
+- [X] Create an app using React-Boilerplate
+- [ ] Page with UI to input a string saved to a database
+- [ ] Page to display all stored strings
+- [X] Ability to navigate between pages
+- [ ] Meaningful layout
+- [X] Uses a Node / Express server
+- [X] Use React Router
+- [ ] Redux
+- [ ] Redux Saga
+- [ ] Reselect
+- [X] Styled components
+- [ ] Unit Tests - at least one test one one new component
+   
+### Files and Folders Added
+* /backend
+  * /controllers
+    * main.js
+  * config.js
+  * db_server.js
+* Phrases.js
+* NavBar.js
+* NavBar.css
+
+<hr />
+
 <img src="https://raw.githubusercontent.com/react-boilerplate/react-boilerplate-brand/master/assets/banner-metal-optimized.jpg" alt="react boilerplate banner" align="center" />
 
 <br />

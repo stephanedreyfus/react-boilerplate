@@ -6,7 +6,7 @@ const mainColor = 'mediumvioletred';
 const Wrapper = styled.section`
   background: #e0e2e5;
   height: 20em;
-  width: 40%;
+  width: 42%;
   border-radius: 6px;
   border: 0.1em solid ${mainColor};
   box-shadow: 5px 6px 8px ${mainColor};

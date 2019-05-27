@@ -13,12 +13,14 @@ import { Switch, Route } from 'react-router-dom';
 import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Phrases from '../../components/Phrases';
+import NavBar from '../../components/NavBar';
 
 import GlobalStyle from '../../global-styles';
 
 export default function App() {
   return (
     <div className="app-div">
+      <NavBar />
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/phrases" component={Phrases} />

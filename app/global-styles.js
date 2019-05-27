@@ -25,6 +25,7 @@ const GlobalStyle = createGlobalStyle`
 
   .app-div {
     display: flex;
+    flex-direction: column;
   }
 
   p,
