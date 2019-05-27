@@ -6,7 +6,7 @@ const addPhrase = (req, res, db) => {
   const { phrase } = req.body;
   const added = new Date();
   db('phrases')
-    .insert(phrase, added)
+    .insert({ phrase, added })
     .returning('*')
     .then(item => {
       res.json(item);

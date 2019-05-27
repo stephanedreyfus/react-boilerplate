@@ -22,8 +22,8 @@ const { PORT, DB_URI } = require('./config');
 const db = require('knex')({
   client: 'pg',
   connection: {
-    connectionSting: DB_URI,
-    ssl: true,
+    connectionString: DB_URI,
+    ssl: false,
   },
 });
 
