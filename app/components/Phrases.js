@@ -1,6 +1,8 @@
-import React from 'react';
+/** Component for both adding and viewing phrases. */
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
+// Component styling
 const mainColor = 'mediumvioletred';
 
 const Wrapper = styled.section`
@@ -34,11 +36,50 @@ const Display = styled.div`
 // Display "No phrases yet." if no phrases.
 // Display "Loading..." while phrases are sought.
 
-export default function Phrases() {
-  return (
-    <Wrapper>
-      <DisplayTitle>Previously Entered Phrases</DisplayTitle>
-      <Display>Space holder.</Display>
-    </Wrapper>
-  );
+class Phrases extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      phrase: '',
+    };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  // async handleSubmit(evt) {
+  //   evt.preventDefault();
+  //   const phrase = this.state.phrase;
+
+  //   try {
+  //     result = await
+  //   }
+  // }
+
+  handleChange(e) {
+    this.setState({ phrase: e.target.value });
+  }
+
+  render() {
+    return (
+      <Wrapper>
+        <DisplayTitle>Enter a Phrase</DisplayTitle>
+        <div>
+          <label htmlFor="phrase">Enter Phrase</label>
+          <input
+            id="phrase"
+            type="text"
+            placeholder="Write something here..."
+            value={this.state.phrase}
+            onChange={this.handleChange}
+          />
+        </div>
+        <DisplayTitle>Previously Entered Phrases</DisplayTitle>
+        <Display>Space holder.</Display>
+      </Wrapper>
+    );
+  }
 }
+
+export default Phrases;
