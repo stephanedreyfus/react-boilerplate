@@ -32,6 +32,20 @@ const Display = styled.div`
   border-width: 1px;
 `;
 
+const Form = styled.form`
+  font-family: 'Roboto', sans-serif;
+  width: 85%;
+  margin: auto;
+`;
+
+const Input = styled.input`
+  width: 84%;
+  padding: 0.2em;
+  margin: 0.4em;
+  border-radius: 10px;
+  border-width: 1px;
+`;
+
 // Bring in array of phrases. Map over and display after component did mount.
 // Display "No phrases yet." if no phrases.
 // Display "Loading..." while phrases are sought.
@@ -64,17 +78,17 @@ class Phrases extends Component {
   render() {
     return (
       <Wrapper>
-        <DisplayTitle>Enter a Phrase</DisplayTitle>
-        <div>
-          <label htmlFor="phrase">Enter Phrase</label>
-          <input
+        <DisplayTitle>Craft a Phrase</DisplayTitle>
+        <Form>
+          <label htmlFor="phrase">Enter</label>
+          <Input
             id="phrase"
             type="text"
-            placeholder="Write something here..."
+            placeholder="something here..."
             value={this.state.phrase}
             onChange={this.handleChange}
           />
-        </div>
+        </Form>
         <DisplayTitle>Previously Entered Phrases</DisplayTitle>
         <Display>Space holder.</Display>
       </Wrapper>
