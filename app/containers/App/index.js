@@ -13,7 +13,7 @@ import { Switch, Route } from 'react-router-dom';
 import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Phrases from 'containers/Phrases/Loadable';
-import NavBar from '../../components/NavBar';
+import NavBar from '../../components/NavBar/NavBar';
 
 import GlobalStyle from '../../global-styles';
 

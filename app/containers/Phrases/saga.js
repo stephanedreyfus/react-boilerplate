@@ -1,6 +1,5 @@
-// import { take, call, put, select } from 'redux-saga/effects';
+// FIXME
+// import axios from 'axios';
+// import { takeLatest, call, put, select } from 'redux-saga/effects';
 
-// Individual exports for testing
-export default function* stringSaga() {
-  // See example in containers/HomePage/saga.js
-}
+// export default function* addPhraseSaga() {}
