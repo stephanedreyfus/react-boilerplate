@@ -8,8 +8,4 @@
  * Follow this format:
  * export const YOUR_ACTION_CONSTANT = 'yourproject/YourContainer/YOUR_ACTION_CONSTANT';
  *
- * Constants below for determing action types of adding a phrase and getting phrases.
  */
-
-export const ADD_PHRASE = 'ADD_PHRASE';
-export const GET_PHRASES = 'GET_PHRASES';
