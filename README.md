@@ -21,11 +21,14 @@ Using PostgreSQL create the following two databses:
 - phrases
 - phrases-test
 
+**Database runs on port 3001**
+
 ### To start front end:
 From project directory
 ```sh
 $ npm start
 ```
+**Front end runs on port 3000**
 
 ### To start database server:
 From project directory
@@ -33,6 +36,7 @@ From project directory
 $ cd backend
 $ nodemon db_server.js
 ```
+**Database runs on port 3001**
 
 ### To run front end tests:
 From project directory
