@@ -1,5 +1,4 @@
 // Controllers: server queries
-// FIXME: Using this simplified method for now. Eventually use Saga.
 
 const addPhrase = (req, res, db) => {
   const { phrase } = req.body;

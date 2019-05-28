@@ -1,18 +1,19 @@
 /**
  *
- * Component for both adding and viewing phrases.
+ * Container for both adding and viewing phrases.
  *
+ * Things that need completing here:
+ * - Dispatch to saga to add new phrase to store
+ * - Dispatch to get all phrases from store
+ * - Map over data returned from store to show each phrase in DOM
  */
 
-import React, { memo } from 'react';
-// import PropTypes from 'prop-types';
-// import { connect } from 'react-redux';
-// import { createStructuredSelector } from 'reselect';
+import React, { memo, Component } from 'react';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 
-// import { useInjectSaga } from 'utils/injectSaga';
-// import { useInjectReducer } from 'utils/injectReducer';
-// import makeSelectString from './selectors';
+import makeSelectString from './selectors';
 // import reducer from './reducer';
 // import saga from './saga';
 
@@ -25,49 +26,65 @@ import {
   Input,
 } from '../../components/Styling/PhrasesStyle';
 
-export function Phrases() {
-  // useInjectReducer({ key: 'string', reducer });
-  // useInjectSaga({ key: 'string', saga });
+class Phrases extends Component {
+  constructor(props) {
+    super(props);
 
-  return (
-    <Wrapper>
-      <DisplayTitle>Craft a Phrase</DisplayTitle>
-      <Form>
-        <Label htmlFor="phrase">Enter</Label>
-        <Input
-          id="phrase"
-          type="text"
-          placeholder="something here..."
-          // value={this.state.phrase}
-          // onChange={this.handleChange}
-        />
-      </Form>
-      <DisplayTitle>Previously Entered Phrases</DisplayTitle>
-      <Display>Space holder.</Display>
-    </Wrapper>
-  );
+    this.state = {
+      phrase: '',
+    };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  async handleSubmit(evt) {
+    evt.preventDefault();
+    // let data = this.state.phrase;
+    // FIXME Need to send call to Redux-Saga to send phrase to store.
+  }
+
+  handleChange(e) {
+    this.setState({ phrase: e.target.value });
+  }
+
+  render() {
+    return (
+      <Wrapper>
+        <DisplayTitle>Craft a Phrase</DisplayTitle>
+        <Form>
+          <Label htmlFor="phrase">Enter</Label>
+          <Input
+            id="phrase"
+            type="text"
+            placeholder="something here..."
+            value={this.state.phrase}
+            onChange={this.handleChange}
+          />
+        </Form>
+        <DisplayTitle>Previously Entered Phrases</DisplayTitle>
+        <Display>Space holder.</Display>
+      </Wrapper>
+    );
+  }
 }
 
-// String.propTypes = {
-//   dispatch: PropTypes.func.isRequired,
-// };
+const mapStateToProps = createStructuredSelector({
+  string: makeSelectString(),
+});
 
-// const mapStateToProps = createStructuredSelector({
-//   string: makeSelectString(),
-// });
+function mapDispatchToProps(dispatch) {
+  return {
+    dispatch,
+  };
+}
 
-// function mapDispatchToProps(dispatch) {
-//   return {
-//     dispatch,
-//   };
-// }
-
-// const withConnect = connect(
-//   mapStateToProps,
-//   mapDispatchToProps,
-// );
+const withConnect = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+);
 
 export default compose(
-  // withConnect,
+  withConnect,
   memo,
 )(Phrases);
