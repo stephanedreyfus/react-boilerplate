@@ -1,22 +1,6 @@
-/**
- *
- * Component for both adding and viewing phrases.
- *
- */
-
-import React, { memo } from 'react';
-// import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { Helmet } from 'react-helmet';
-import { createStructuredSelector } from 'reselect';
-import { compose } from 'redux';
+/** Component for both adding and viewing phrases. */
+import React, { Component } from 'react';
 import styled from 'styled-components';
-
-import { useInjectSaga } from 'utils/injectSaga';
-import { useInjectReducer } from 'utils/injectReducer';
-import makeSelectString from './selectors';
-import reducer from './reducer';
-import saga from './saga';
 
 // Component styling
 const mainColor = 'mediumvioletred';
@@ -62,13 +46,38 @@ const Input = styled.input`
   border-width: 1px;
 `;
 
-export function String() {
-  useInjectReducer({ key: 'string', reducer });
-  useInjectSaga({ key: 'string', saga });
+// Bring in array of phrases. Map over and display after component did mount.
+// Display "No phrases yet." if no phrases.
+// Display "Loading..." while phrases are sought.
 
-  return (
-    <Wrapper>
-      <Helmet>
+class Phrases extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      phrase: '',
+    };
+
+    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  // async handleSubmit(evt) {
+  //   evt.preventDefault();
+  //   const phrase = this.state.phrase;
+
+  //   try {
+  //     result = await
+  //   }
+  // }
+
+  handleChange(e) {
+    this.setState({ phrase: e.target.value });
+  }
+
+  render() {
+    return (
+      <Wrapper>
         <DisplayTitle>Craft a Phrase</DisplayTitle>
         <Form>
           <label htmlFor="phrase">Enter</label>
@@ -76,37 +85,15 @@ export function String() {
             id="phrase"
             type="text"
             placeholder="something here..."
-            // value={this.state.phrase}
-            // onChange={this.handleChange}
+            value={this.state.phrase}
+            onChange={this.handleChange}
           />
         </Form>
         <DisplayTitle>Previously Entered Phrases</DisplayTitle>
         <Display>Space holder.</Display>
-      </Helmet>
-    </Wrapper>
-  );
+      </Wrapper>
+    );
+  }
 }
 
-// String.propTypes = {
-//   dispatch: PropTypes.func.isRequired,
-// };
-
-const mapStateToProps = createStructuredSelector({
-  string: makeSelectString(),
-});
-
-function mapDispatchToProps(dispatch) {
-  return {
-    dispatch,
-  };
-}
-
-const withConnect = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-);
-
-export default compose(
-  withConnect,
-  memo,
-)(String);
+export default Phrases;

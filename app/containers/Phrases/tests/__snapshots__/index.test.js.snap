@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Phrases /> should render and match the snapshot 1`] = `
+<ForwardRef>
+  <ForwardRef>
+    Craft a Phrase
+  </ForwardRef>
+  <ForwardRef>
+    <label
+      htmlFor="phrase"
+    >
+      Enter
+    </label>
+    <ForwardRef
+      id="phrase"
+      onChange={[Function]}
+      placeholder="something here..."
+      type="text"
+      value=""
+    />
+  </ForwardRef>
+  <ForwardRef>
+    Previously Entered Phrases
+  </ForwardRef>
+  <ForwardRef>
+    Space holder.
+  </ForwardRef>
+</ForwardRef>
+`;
