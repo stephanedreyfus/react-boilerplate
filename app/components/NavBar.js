@@ -6,7 +6,7 @@ import './NavBar.css';
 
 /** Top navgiation bar for the site. */
 
-/** Both styled components and a css file were used do to congflict
+/** Both styled components and a css file were used do to conflict
  * with react-router NavLink */
 const NavWrapper = styled.div`
   margin: 0;
