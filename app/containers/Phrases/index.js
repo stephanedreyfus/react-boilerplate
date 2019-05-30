@@ -32,6 +32,7 @@ class Phrases extends Component {
 
     this.state = {
       phrase: '',
+      // phrases: [],
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
