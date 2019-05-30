@@ -10,7 +10,7 @@ import React from 'react';
 import { render } from 'react-testing-library';
 // import 'jest-dom/extend-expect'; // add some helpful assertions
 
-import { Phrases } from '../index';
+import Phrases from '../index';
 
 describe('<Phrases />', () => {
   it('Expect to not log errors in console', () => {
@@ -25,7 +25,7 @@ describe('<Phrases />', () => {
   });
 
   /**
-   * Unskip this test to use it
+   * Unskip this test to use it FIXME
    *
    * @see {@link https://jestjs.io/docs/en/api#testskipname-fn}
    */

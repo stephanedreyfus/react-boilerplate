@@ -30,7 +30,7 @@ describe('<InputForm />', () => {
   });
 
   /**
-   * Unskip this test to use it
+   * Unskip this test to use it FIXME
    *
    * @see {@link https://jestjs.io/docs/en/api#testskipname-fn}
    */
