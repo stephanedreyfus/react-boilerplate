@@ -17,10 +17,10 @@ import makeSelectString from './selectors';
 // import reducer from './reducer';
 // import saga from './saga';
 
+import DisplayField from '../../components/DisplayField';
 import {
   Wrapper,
   DisplayTitle,
-  Display,
   Form,
   Label,
   Input,
@@ -64,7 +64,7 @@ class Phrases extends Component {
           />
         </Form>
         <DisplayTitle>Previously Entered Phrases</DisplayTitle>
-        <Display>Space holder.</Display>
+        <DisplayField />
       </Wrapper>
     );
   }
