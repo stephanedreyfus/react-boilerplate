@@ -2,6 +2,8 @@
  * InputForm Messages
  *
  * This contains all the text for the InputForm component.
+ *
+ * FIXME Remove this or add error messages and the like.
  */
 
 import { defineMessages } from 'react-intl';
