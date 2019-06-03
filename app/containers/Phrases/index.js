@@ -6,7 +6,7 @@
  * - Dispatch to saga to add new phrase to store
  */
 
-import React, { memo } from 'react';
+import React, { memo, PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
@@ -19,17 +19,19 @@ import DisplayField from '../../components/DisplayField';
 import InputForm from '../../components/InputForm';
 import { Wrapper, DisplayTitle } from '../../components/Styling/PhrasesStyle';
 
-// Note in case of malfunction: ave removed export default from below.
+// Note in case of malfunction: have removed export default from below.
 // export default function Phrases() {
-function Phrases() {
-  return (
-    <Wrapper>
-      <DisplayTitle>Craft a Phrase</DisplayTitle>
-      <InputForm />
-      <DisplayTitle>Previously Entered Phrases</DisplayTitle>
-      <DisplayField />
-    </Wrapper>
-  );
+class Phrases extends PureComponent {
+  render() {
+    return (
+      <Wrapper>
+        <DisplayTitle>Craft a Phrase</DisplayTitle>
+        <InputForm addPhrase={this.addPhrase} />
+        <DisplayTitle>Most Recently Added</DisplayTitle>
+        <DisplayField />
+      </Wrapper>
+    );
+  }
 }
 
 const mapStateToProps = createStructuredSelector({
@@ -41,6 +43,8 @@ function mapDispatchToProps(dispatch) {
     dispatch,
   };
 }
+
+// Map this to props: addPhrase(phrase)
 
 const withConnect = connect(
   mapStateToProps,

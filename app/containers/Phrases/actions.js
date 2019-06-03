@@ -1,13 +1,12 @@
 /*
- *
- * String actions
- *
+ * Phrase actions
  */
 
-import { DEFAULT_ACTION } from './constants';
+import { ADD_PHRASE } from './constants';
 
-export function defaultAction() {
+export function addPhrase(phrase) {
   return {
-    type: DEFAULT_ACTION,
+    type: ADD_PHRASE,
+    payload: phrase,
   };
 }

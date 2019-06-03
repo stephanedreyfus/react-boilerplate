@@ -1,20 +1,21 @@
 /*
- *
- * String reducer
- *
+ * Phrase reducer
  */
 import produce from 'immer';
-import { DEFAULT_ACTION } from './constants';
+import { ADD_PHRASE } from './constants';
 
 export const initialState = {};
 
+// FIXME Look at immer docs for state change documentation.
 /* eslint-disable default-case, no-param-reassign */
-const stringReducer = (state = initialState, action) =>
+const phraseReducer = (state = initialState, action = {}) =>
   produce(state, (/* draft */) => {
     switch (action.type) {
-      case DEFAULT_ACTION:
+      case ADD_PHRASE:
         break;
+      default:
+        return state;
     }
   });
 
-export default stringReducer;
+export default phraseReducer;
