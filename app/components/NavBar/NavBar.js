@@ -26,7 +26,10 @@ export default function App() {
           Home
         </NavLink>
         <NavLink className="nav-link" exact to="/phrases">
-          Phrases
+          Add Phrase
+        </NavLink>
+        <NavLink className="nav-link" exac to="/collection">
+          See Phrases
         </NavLink>
       </NavBar>
     </NavWrapper>

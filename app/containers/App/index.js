@@ -13,6 +13,7 @@ import { Switch, Route } from 'react-router-dom';
 import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Phrases from 'containers/Phrases/Loadable';
+import Collection from 'containers/Collection/Loadable';
 import NavBar from 'components/NavBar/NavBar';
 
 import GlobalStyle from '../../global-styles';
@@ -24,6 +25,7 @@ export default function App() {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/phrases" component={Phrases} />
+        <Route exact path="/collection" compoent={Collection} />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />

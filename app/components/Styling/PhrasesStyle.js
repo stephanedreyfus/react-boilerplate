@@ -30,3 +30,11 @@ export const Display = styled.div`
   border-radius: 10px;
   border-width: 1px;
 `;
+
+export const ListContaine = styled.ul`
+  list-style: none;
+`;
+
+export const PhraseList = styled.li`
+  margin: auto;
+`;

@@ -13,9 +13,6 @@ import {
   LabelInputWrapper,
 } from '../Styling/InputStyle';
 
-// import { FormattedMessage } from 'react-intl';
-// import messages from './messages';
-
 class InputForm extends PureComponent {
   static propTypes = { addPhrase: PropTypes.func };
 

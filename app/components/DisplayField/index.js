@@ -5,25 +5,33 @@
  *
  */
 
-import React from 'react';
-// import PropTypes from 'prop-types';
-// import styled from 'styled-components';
-
-import { FormattedMessage } from 'react-intl';
-import messages from './messages';
+import React, { PureComponent } from 'react';
+import { PhraseList, PhraseListItem } from '../Styling/PhrasesStyle';
 
 // If no props, show loading message.
 // If prop type is a message about no phrase, display that. This should happen
 // when the display is a child of the add phrase page.
 
-function DisplayField() {
-  return (
-    <div>
-      <FormattedMessage {...messages.header} />
-    </div>
-  );
-}
+class DisplayField extends PureComponent {
 
-DisplayField.propTypes = {};
+  // FIXME connect to saga
+  componentDidMount = () => {
+    this.props.getPhrases();
+  };
+
+  // FIXME determine where strings are coming from
+  renderPhraseCollection = strings =>
+    strings.map((string, added) => (
+      <PhraseListItem key={added} string={string.string} />
+    ));
+
+  render() {
+    return (
+      <PhraseList>
+        <PhraseListItem>{this.renderPhraseCollection()}</PhraseListItem>
+      </PhraseList>
+    );
+  }
+}
 
 export default DisplayField;
