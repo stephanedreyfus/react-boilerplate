@@ -10,18 +10,22 @@ import React, { memo, PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
+import PropTypes from 'prop-types';
 
-import makeSelectString from './selectors';
-// import reducer from './reducer';
-// import saga from './saga';
+import makeSelectPhrase from './selectors';
+import * as actions from './actions';
 
 import DisplayField from '../../components/DisplayField';
 import InputForm from '../../components/InputForm';
 import { Wrapper, DisplayTitle } from '../../components/Styling/PhrasesStyle';
 
-// Note in case of malfunction: have removed export default from below.
-// export default function Phrases() {
 class Phrases extends PureComponent {
+  static propTypes = { phraseToStore: PropTypes.func };
+
+  addPhrase = phrase => {
+    this.props.phraseToStore(phrase);
+  };
+
   render() {
     return (
       <Wrapper>
@@ -35,16 +39,12 @@ class Phrases extends PureComponent {
 }
 
 const mapStateToProps = createStructuredSelector({
-  string: makeSelectString(),
+  phrases: makeSelectPhrase(),
 });
 
-function mapDispatchToProps(dispatch) {
-  return {
-    dispatch,
-  };
-}
-
-// Map this to props: addPhrase(phrase)
+const mapDispatchToProps = {
+  phraseToStore: phrase => actions.addPhrase(phrase),
+};
 
 const withConnect = connect(
   mapStateToProps,

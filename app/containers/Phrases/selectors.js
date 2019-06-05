@@ -5,17 +5,15 @@ import { initialState } from './reducer';
  * Direct selector to the phrases state domain
  */
 
-const selectStringDomain = state => state.string || initialState;
-const myPhraseSelector = (state) => state.newPhrase || initialState
+const myPhraseSelector = state => state.newPhrase || initialState;
 /**
  * Default selector used by Phrases
  */
 
-const makeSelectString = () =>
+const makeSelectPhrase = () =>
   createSelector(
-    selectStringDomain,
+    myPhraseSelector,
     substate => substate,
   );
 
-export default makeSelectString;
-export { selectStringDomain };
+export default makeSelectPhrase;

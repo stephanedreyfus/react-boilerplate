@@ -4,30 +4,13 @@
  */
 
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import reducer from './reducer';
-import saga from './saga';
-
 import DisplayField from '../../components/DisplayField';
-import {
-  Wrapper,
-  DisplayTitle,
-  PhraseList,
-} from '../../components/Styling/PhrasesStyle';
-
-// export function Collection() {
-//   useInjectReducer({ key: 'collection', reducer });
-//   useInjectSaga({ key: 'collection', saga });
-
-//   return <div />;
-// }
+import { Wrapper, DisplayTitle } from '../../components/Styling/PhrasesStyle';
 
 class Collection extends PureComponent {
-  static propTypes = { getPhrases: PropTypes.func };
-
   constructor(props) {
     super(props);
 
@@ -69,10 +52,6 @@ class Collection extends PureComponent {
     );
   }
 }
-
-Collection.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-};
 
 function mapStateToProps(state) {
   return {
