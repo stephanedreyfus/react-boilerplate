@@ -31,10 +31,10 @@ export const Display = styled.div`
   border-width: 1px;
 `;
 
-export const ListContaine = styled.ul`
+export const PhraseList = styled.ul`
   list-style: none;
 `;
 
-export const PhraseList = styled.li`
+export const ListItem = styled.li`
   margin: auto;
 `;

@@ -6,13 +6,15 @@
  */
 
 import React, { PureComponent } from 'react';
-import { PhraseList, PhraseListItem } from '../Styling/PhrasesStyle';
+import PropTypes from 'prop-types';
+import { PhraseList, ListItem } from '../Styling/PhrasesStyle';
 
 // If no props, show loading message.
 // If prop type is a message about no phrase, display that. This should happen
 // when the display is a child of the add phrase page.
 
 class DisplayField extends PureComponent {
+  static propTypes = { getPhrases: PropTypes.func };
 
   // FIXME connect to saga
   componentDidMount = () => {
@@ -20,15 +22,13 @@ class DisplayField extends PureComponent {
   };
 
   // FIXME determine where strings are coming from
-  renderPhraseCollection = strings =>
-    strings.map((string, added) => (
-      <PhraseListItem key={added} string={string.string} />
-    ));
+  renderPhraseCollection = phrase =>
+    phrase.map(p => <ListItem key={p.added} phrase={p.phrase} />);
 
   render() {
     return (
       <PhraseList>
-        <PhraseListItem>{this.renderPhraseCollection()}</PhraseListItem>
+        <ListItem>{this.renderPhraseCollection()}</ListItem>
       </PhraseList>
     );
   }
