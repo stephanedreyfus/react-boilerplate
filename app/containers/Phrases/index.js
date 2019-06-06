@@ -15,24 +15,20 @@ import PropTypes from 'prop-types';
 import makeSelectPhrase from './selectors';
 import * as actions from './actions';
 
-import DisplayField from '../../components/DisplayField';
+// import DisplayField from '../../components/DisplayField';
 import InputForm from '../../components/InputForm';
 import { Wrapper, DisplayTitle } from '../../components/Styling/PhrasesStyle';
 
 class Phrases extends PureComponent {
-  static propTypes = { phraseToStore: PropTypes.func };
+  static propTypes = { addPhrase: PropTypes.func };
 
-  addPhrase = phrase => {
-    this.props.phraseToStore(phrase);
-  };
-
+  // <DisplayField phrases={this.phrases[0]} />
   render() {
     return (
       <Wrapper>
         <DisplayTitle>Craft a Phrase</DisplayTitle>
-        <InputForm addPhrase={this.addPhrase} />
+        <InputForm addPhrase={this.props.addPhrase} />
         <DisplayTitle>Most Recently Added</DisplayTitle>
-        <DisplayField />
       </Wrapper>
     );
   }
@@ -43,7 +39,7 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = {
-  phraseToStore: phrase => actions.addPhrase(phrase),
+  addPhrase: phrase => actions.addPhrase(phrase),
 };
 
 const withConnect = connect(

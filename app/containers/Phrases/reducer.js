@@ -10,6 +10,7 @@ export const initialState = [];
 /* eslint-disable default-case, no-param-reassign */
 const phraseReducer = (state = initialState, action = {}) =>
   produce(state, draft => {
+    console.log('Made it into reducer');
     switch (action.type) {
       case ADD_PHRASE:
         draft.newPhrase = action.payload;

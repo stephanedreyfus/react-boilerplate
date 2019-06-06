@@ -18,7 +18,8 @@ export default function HomePage() {
         Welcome to phrase collector!
         <br />
         <br />
-        <Link href="/phrases">Add and See Phrases</Link>
+        <Link href="/phrases">Add</Link> and <Link href="/collection">See</Link>{' '}
+        Phrases
       </Greeting>
     </Wrapper>
   );

@@ -11,10 +11,11 @@ const API_URL = 'http://localhost:3000/phrases';
 
 function* postPhrase() {
   try {
+    console.log('Made it to saga');
     const res = yield call(request, API_URL);
-    // FIXME Need to clarity where/what this put is. Should be an action?
     yield put(addPhrase(res));
   } catch (err) {
+    console.log('Made it to saga error');
     yield put(phraseLoadingError(err));
   }
 }
@@ -22,6 +23,7 @@ function* postPhrase() {
 function* phraseWatcher() {
   yield takeLatest('ADD_PHRASE', postPhrase);
 }
+
 export default function* postPhraseSaga() {
   yield all([phraseWatcher()]);
 }

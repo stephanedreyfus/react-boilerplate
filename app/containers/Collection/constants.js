@@ -1,7 +1,6 @@
 /*
- *
  * Collection constants
- *
  */
 
-export const DEFAULT_ACTION = 'app/Collection/DEFAULT_ACTION';
+export const GET_PHRASES = 'GET_PHRASES';
+export const GET_PHRASES_ERROR = 'GET_PHRASES_ERROR';
