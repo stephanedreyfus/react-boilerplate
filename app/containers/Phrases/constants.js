@@ -5,3 +5,4 @@
 
 export const ADD_PHRASE = 'ADD_PHRASE';
 export const GET_PHRASES = 'GET_PHRASES';
+export const ADD_PHRASE_ERROR = 'ADD_PHRASE_ERROR';
