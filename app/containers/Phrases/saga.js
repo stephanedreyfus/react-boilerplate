@@ -1,21 +1,17 @@
-/** FIXME Barely started before running out of time. Need more clarity on
- * how to merge together all the various parts of Boilerplate in order
- * to properly make dispatches to the back end and then store the results
- * in the store, as well as dispatch to the store to get stored data. */
+/** In debugging stage there is a bad request I have only started to
+ * explore. Currently only manage to get to error catching. */
 
-import { takeLatest, call, put, all } from 'redux-saga/effects';
+import { takeLatest, put, all } from 'redux-saga/effects';
+import axios from 'axios';
 import { phraseLoadingError, addPhrase } from 'containers/Phrases/actions';
-import request from 'utils/requests';
 
-const API_URL = 'http://localhost:3000/phrases';
+const API_URL = 'http://localhost:3001/';
 
-function* postPhrase() {
+function* postPhrase(data) {
   try {
-    console.log('Made it to saga');
-    const res = yield call(request, API_URL);
+    const res = yield axios.post(`${API_URL}Phrases`, { phrase: data.payload });
     yield put(addPhrase(res));
   } catch (err) {
-    console.log('Made it to saga error');
     yield put(phraseLoadingError(err));
   }
 }
