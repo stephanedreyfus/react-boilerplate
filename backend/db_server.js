@@ -52,7 +52,7 @@ app.use(morgan('combined'));
 
 // Routes
 app.post('/phrases', (req, res) => main.addPhrase(req, res, db));
-app.get('/phrases', (req, res) => main.getPhrases(req, res, db));
+app.get('/collection', (req, res) => main.getPhrases(req, res, db));
 
 // App server connection
 app.listen(PORT || 3001, () => {

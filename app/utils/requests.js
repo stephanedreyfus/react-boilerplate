@@ -39,6 +39,6 @@ function checkStatus(response) {
  */
 export default function request(url, options) {
   return fetch(url, options)
-    .then(r => checkStatus(r))
-    .then(json => parseJSON(json));
+    .then(checkStatus)
+    .then(parseJSON);
 }
