@@ -4,6 +4,7 @@
  */
 
 import React, { useEffect, memo } from 'react';
+import { createStructuredSelector } from 'reselect';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -13,8 +14,13 @@ import saga from './saga';
 import reducer from './reducer';
 
 import { getPhrases } from './actions';
+import {
+  makeSelectPhrases,
+  makeSelectLoading,
+  makeSelectError,
+} from './selectors';
 
-import DisplayField from '../../components/DisplayField';
+// import DisplayField from '../../components/DisplayField';
 import { Wrapper, DisplayTitle } from '../../components/Styling/PhrasesStyle';
 
 const key = 'collection';
@@ -41,7 +47,8 @@ export function Collection({ phrases, loading, sendGetPhrases }) {
     loaded = (
       <Wrapper>
         <DisplayTitle>Collected Phrases</DisplayTitle>
-        <DisplayField phrases={phrases} />
+        {/* <DisplayField phrases={phrases} /> */}
+        {phrases}
       </Wrapper>
     );
   } else {
@@ -63,11 +70,11 @@ Collection.propTypes = {
   sendGetPhrases: PropTypes.func,
 };
 
-function mapStateToProps(state) {
-  return {
-    phrases: state.collection.phrases,
-  };
-}
+const mapStateToProps = createStructuredSelector({
+  phrases: makeSelectPhrases(),
+  loading: makeSelectLoading(),
+  error: makeSelectError(),
+});
 
 function mapDispatchToProps(dispatch) {
   return {

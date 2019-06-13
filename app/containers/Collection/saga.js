@@ -13,8 +13,7 @@ const API_URL = 'http://localhost:3001/';
 
 export function* getPhrases() {
   try {
-    const res = yield call(request, API_URL);
-    // debugger;
+    const res = yield call(request, `${API_URL}collection`);
     yield put(getPhrasesSuccess(res));
   } catch (err) {
     yield put(getPhrasesError(err));

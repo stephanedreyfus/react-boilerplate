@@ -10,7 +10,7 @@ import {
 
 export const initialState = {
   phrases: [],
-  loaded: false,
+  loading: false,
   error: false,
 };
 
@@ -22,11 +22,11 @@ const collectionReducer = (state = initialState, action) =>
       case GET_PHRASES:
         break;
       case GET_PHRASES_ERROR:
-        draft.loaded = true;
+        draft.loading = true;
         draft.error = true;
         break;
       case GET_PHRASES_SUCCESS:
-        draft.loaded = true;
+        draft.loading = true;
         draft.phrases = action.phrases.items;
         break;
     }

@@ -25,7 +25,7 @@ class DisplayField extends PureComponent {
   render() {
     return (
       <PhraseList>
-        <ListItem>{this.renderPhraseCollection()}</ListItem>
+        {/* <ListItem>{this.renderPhraseCollection(this.props.phrases)}</ListItem> */}
       </PhraseList>
     );
   }

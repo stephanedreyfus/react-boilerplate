@@ -5,21 +5,24 @@ import { initialState } from './reducer';
  * Direct selector to the collection state domain
  */
 
-const selectCollectionDomain = state => state.collection || initialState;
+const selectCollection = state => state.collection || initialState;
 
-/**
- * Other specific selectors
- */
-
-/**
- * Default selector used by Collection
- */
-
-const makeSelectCollection = () =>
+const makeSelectPhrases = () =>
   createSelector(
-    selectCollectionDomain,
-    substate => substate,
+    selectCollection,
+    globalState => globalState.phrases,
   );
 
-export default makeSelectCollection;
-export { selectCollectionDomain };
+const makeSelectLoading = () =>
+  createSelector(
+    selectCollection,
+    globalState => globalState.loading,
+  );
+
+const makeSelectError = () =>
+  createSelector(
+    selectCollection,
+    globalState => globalState.error,
+  );
+
+export { makeSelectPhrases, makeSelectLoading, makeSelectError };
