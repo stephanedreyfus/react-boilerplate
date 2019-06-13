@@ -6,20 +6,32 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import { useInjectReducer } from 'utils/injectReducer';
+import { useInjectSaga } from 'utils/injectSaga';
+import saga from './saga';
+import reducer from './reducer';
 
 import DisplayField from '../../components/DisplayField';
 import { Wrapper, DisplayTitle } from '../../components/Styling/PhrasesStyle';
+
+const key = 'collectionPage';
 
 class Collection extends PureComponent {
   constructor(props) {
     super(props);
 
+    // FIXME Remove all state to store. Refactor component
+    // back to function style hook. Change injectors!
     this.state = {
-      phrases: [],
       loaded: false,
     };
 
     this.getPhrases = this.getPhrases.bind(this);
+  }
+
+  componentDidMount() {
+    useInjectReducer({ key, reducer });
+    useInjectSaga({ key, saga });
   }
 
   // If phrases have been loaded, render the following:
@@ -55,7 +67,7 @@ class Collection extends PureComponent {
 
 function mapStateToProps(state) {
   return {
-    phrases: state.phrases,
+    phrases: state.collection.phrases,
   };
 }
 

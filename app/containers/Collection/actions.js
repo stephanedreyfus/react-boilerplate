@@ -1,13 +1,28 @@
 /*
- *
  * Collection actions
- *
  */
 
-import { DEFAULT_ACTION } from './constants';
+import {
+  GET_PHRASES,
+  GET_PHRASES_SUCCESS,
+  GET_PHRASES_ERROR,
+} from './constants';
 
-export function defaultAction() {
+export function getPhrases() {
   return {
-    type: DEFAULT_ACTION,
+    type: GET_PHRASES,
+  };
+}
+
+export function getPhrasesError() {
+  return {
+    type: GET_PHRASES_ERROR,
+  };
+}
+
+export function getPhrasesSuccess(phrases) {
+  return {
+    type: GET_PHRASES_SUCCESS,
+    phrases,
   };
 }
