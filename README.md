@@ -26,8 +26,14 @@ While it is true that this has been a travel week (I am currently in NYC), and I
 Using PostgreSQL create the following two databses:
 - phrases
 - phrases-test
-
+### To start database server:
+From project directory
+```sh
+$ cd backend
+$ nodemon db_server.js
+```
 **Database runs on port 3001**
+
 
 ### To start front end:
 From project directory
@@ -36,13 +42,6 @@ $ npm start
 ```
 **Front end runs on port 3000**
 
-### To start database server:
-From project directory
-```sh
-$ cd backend
-$ nodemon db_server.js
-```
-**Database runs on port 3001**
 
 ### To run front end tests:
 From project directory
