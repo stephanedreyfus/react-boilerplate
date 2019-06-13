@@ -3,15 +3,16 @@
  * Connects to store to retrieve and display all entered phrases.
  */
 
-import React from 'react';
+import React, { useEffect, memo } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { useInjectReducer } from 'utils/injectReducer';
 import { useInjectSaga } from 'utils/injectSaga';
-import { props } from 'bluebird';
 import saga from './saga';
 import reducer from './reducer';
+
+import { getPhrases } from './actions';
 
 import DisplayField from '../../components/DisplayField';
 import { Wrapper, DisplayTitle } from '../../components/Styling/PhrasesStyle';
@@ -20,7 +21,7 @@ const key = 'collection';
 let loaded;
 let notLoaded;
 
-export function Collection() {
+export function Collection({ phrases, loading, sendGetPhrases }) {
   // FIXME Refactor component:
   // Change injectors
   // Add loaded toggle to store
@@ -30,12 +31,17 @@ export function Collection() {
   useInjectReducer({ key, reducer });
   useInjectSaga({ key, saga });
 
-  if (props.loading) {
+  useEffect(() => {
+    // debugger;
+    if (phrases.length === 0) sendGetPhrases();
+  }, []);
+
+  if (loading) {
     // If phrases have been loaded, render the following:
     loaded = (
       <Wrapper>
         <DisplayTitle>Collected Phrases</DisplayTitle>
-        <DisplayField phrases={props.phrases} />
+        <DisplayField phrases={phrases} />
       </Wrapper>
     );
   } else {
@@ -48,12 +54,13 @@ export function Collection() {
     );
   }
 
-  return <Wrapper>{props.loading === true ? loaded : notLoaded}</Wrapper>;
+  return <Wrapper>{loading === true ? loaded : notLoaded}</Wrapper>;
 }
 
 Collection.propTypes = {
   loading: PropTypes.bool,
   phrases: PropTypes.array,
+  sendGetPhrases: PropTypes.func,
 };
 
 function mapStateToProps(state) {
@@ -64,7 +71,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    dispatch,
+    sendGetPhrases: () => dispatch(getPhrases()),
   };
 }
 
@@ -73,4 +80,7 @@ const withConnect = connect(
   mapDispatchToProps,
 );
 
-export default compose(withConnect)(Collection);
+export default compose(
+  withConnect,
+  memo,
+)(Collection);
