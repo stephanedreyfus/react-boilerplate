@@ -28,12 +28,6 @@ let loaded;
 let notLoaded;
 
 export function Collection({ phrases, loading, sendGetPhrases }) {
-  // FIXME Refactor component:
-  // Change injectors
-  // Add loaded toggle to store
-  // Add getPhrase equivalent
-  // Add elements to control child input component
-
   useInjectReducer({ key, reducer });
   useInjectSaga({ key, saga });
 
@@ -42,7 +36,7 @@ export function Collection({ phrases, loading, sendGetPhrases }) {
   }, []);
 
   if (loading) {
-    // FIXME Replace Loading phrase with loading graphic component
+    // IMPROVEME Replace Loading phrase with loading graphic component
     // If no phrases are loaded, render the following:
     notLoaded = <DisplayTitle>Loading Phrases, Please Wait</DisplayTitle>;
   } else {

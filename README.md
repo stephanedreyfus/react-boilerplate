@@ -4,21 +4,19 @@ I want to thank Reed and DMI for inviting me to take this take home. I am curren
 
 ## Update After Continuing Work
 
-The ideas of the various libraries are relatively clear to me, but I have been slow to implement them. I fear that my approach to the whole project was never quite clear enough. I tried to implement complex systems for a simple app and got lost in the details.
-
-While it is true that this has been a travel week (I am currently in NYC), and I have been spending a fair amount of time supporting my wife whie she is studying here, I have still had many hours to work on this project (no full days though). Nonetheless I find myself lagging in what I thought I could achieve.
+(FIXME - add update)
 
 ### Required Basic Tasks
 - [X] Create an app using React-Boilerplate
-- [X] Page with UI to input a string saved to a database
+- [ ] Page with UI to input a string saved to a database
 - [X] Page to display all stored strings
 - [X] Ability to navigate between pages
 - [X] Meaningful layout
 - [X] Uses a Node / Express server
 - [X] Use React Router
-- [ ] Redux
+- [X] Redux
 - [X] Redux Saga
-- [ ] Reselect
+- [X] Reselect
 - [X] Styled components
 - [ ] Unit Tests - at least one test one one new component
 
