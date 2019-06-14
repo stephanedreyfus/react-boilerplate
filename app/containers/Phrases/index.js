@@ -3,7 +3,7 @@
  * Eventually will display most recently added phrase.
  */
 
-import React, { memo, PureComponent } from 'react';
+import React, { memo } from 'react';
 import { createStructuredSelector } from 'reselect';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -26,28 +26,41 @@ import { Wrapper, DisplayTitle } from '../../components/Styling/PhrasesStyle';
 
 const key = 'phrases';
 
-class Phrases extends PureComponent {
-  static propTypes = { addPhrase: PropTypes.func, phrase: PropTypes.array };
+export function Phrases({ phrase, loading, sendAddPhrase }) {
+  useInjectReducer({ key, reducer });
+  useInjectSaga({ key, saga });
 
-  render() {
-    return (
-      <Wrapper>
-        <DisplayTitle>Craft a Phrase</DisplayTitle>
-        <InputForm addPhrase={this.props.addPhrase} />
-        <DisplayTitle>Most Recently Added</DisplayTitle>
-        <DisplayField phrase={this.props.phrase} />
-      </Wrapper>
-    );
-  }
+  // FIXME Not sure if necessary. As soon as a phrase is added, it should
+  // be in store (state.phrase).
+  // useEffect(() => {
+  //   if (phrase.length === 0 sendGetPhrases();
+  // }, []);
+
+  return (
+    <Wrapper>
+      <DisplayTitle>Craft a Phrase</DisplayTitle>
+      <InputForm addPhrase={sendAddPhrase} />
+      <DisplayTitle>Most Recently Added</DisplayTitle>
+      <DisplayField phrase={phrase} loading={loading} />
+    </Wrapper>
+  );
 }
+
+Phrases.propTypes = {
+  phrase: PropTypes.array,
+  loading: PropTypes.bool,
+  sendAddPhrase: PropTypes.func,
+};
 
 // FIXME Implement getting latest addition from state
 const mapStateToProps = createStructuredSelector({
-  phrases: makeSelectPhrase(),
+  phrase: makeSelectPhrase(),
+  loading: makeSelectLoading(),
+  error: makeSelectError(),
 });
 
 const mapDispatchToProps = {
-  addPhrase: phrase => addPhrase(phrase),
+  sendAddPhrase: phrase => addPhrase(phrase),
 };
 
 const withConnect = connect(
