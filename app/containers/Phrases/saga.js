@@ -5,9 +5,8 @@ import { addPhraseError, addPhraseSuccess } from 'containers/Phrases/actions';
 import { ADD_PHRASE } from './constants';
 import { API_URL } from '../../utils/constants';
 
-// Use axios or is there a way to use Boilerplate request api?
-
 function* postPhrase(data) {
+  debugger;
   try {
     const res = yield axios.post(`${API_URL}phrases`, {
       phrase: data.payload,

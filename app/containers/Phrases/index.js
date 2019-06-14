@@ -4,44 +4,54 @@
  */
 
 import React, { memo, PureComponent } from 'react';
-import { connect } from 'react-redux';
-// import { createStructuredSelector } from 'reselect';
-import { compose } from 'redux';
+import { createStructuredSelector } from 'reselect';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { useInjectReducer } from 'utils/injectReducer';
+import { useInjectSaga } from 'utils/injectSaga';
+import saga from './saga';
+import reducer from './reducer';
 
-// import makeSelectPhrase from './selectors';
+import {
+  makeSelectPhrase,
+  makeSelectLoading,
+  makeSelectError,
+} from './selectors';
 import { addPhrase } from './actions';
 
-// import DisplayField from '../../components/DisplayField';
+import DisplayField from '../../components/DisplayField';
 import InputForm from '../../components/InputForm';
 import { Wrapper, DisplayTitle } from '../../components/Styling/PhrasesStyle';
 
-class Phrases extends PureComponent {
-  static propTypes = { addPhrase: PropTypes.func };
+const key = 'phrases';
 
-  // <DisplayField phrases={this.phrases[0]} />
+class Phrases extends PureComponent {
+  static propTypes = { addPhrase: PropTypes.func, phrase: PropTypes.array };
+
   render() {
     return (
       <Wrapper>
         <DisplayTitle>Craft a Phrase</DisplayTitle>
         <InputForm addPhrase={this.props.addPhrase} />
         <DisplayTitle>Most Recently Added</DisplayTitle>
+        <DisplayField phrase={this.props.phrase} />
       </Wrapper>
     );
   }
 }
 
 // FIXME Implement getting latest addition from state
-// const mapStateToProps = createStructuredSelector({
-//   phrases: makeSelectPhrase(),
-// });
+const mapStateToProps = createStructuredSelector({
+  phrases: makeSelectPhrase(),
+});
 
 const mapDispatchToProps = {
   addPhrase: phrase => addPhrase(phrase),
 };
 
 const withConnect = connect(
-  // mapStateToProps,
+  mapStateToProps,
   mapDispatchToProps,
 );
 

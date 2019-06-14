@@ -1,19 +1,22 @@
 import { createSelector } from 'reselect';
 import { initialState } from './reducer';
 
-/**
- * Direct selector to the phrases state domain
- */
+const slectPhraseDomain = state => state.phrase || initialState;
 
-const myPhraseSelector = state => state.newPhrase || initialState;
-/**
- * Default selector used by Phrases
- */
-
-const makeSelectPhrase = () =>
+export const makeSelectPhrase = () =>
   createSelector(
-    myPhraseSelector,
-    substate => substate,
+    slectPhraseDomain,
+    globalState => globalState.phrases,
   );
 
-export default makeSelectPhrase;
+export const makeSelectLoading = () =>
+  createSelector(
+    slectPhraseDomain,
+    globalState => globalState.loading,
+  );
+
+export const makeSelectError = () =>
+  createSelector(
+    slectPhraseDomain,
+    globalState => globalState.error,
+  );

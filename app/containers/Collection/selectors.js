@@ -1,28 +1,22 @@
 import { createSelector } from 'reselect';
 import { initialState } from './reducer';
 
-/**
- * Direct selector to the collection state domain
- */
+const selectCollectionDomain = state => state.collection || initialState;
 
-const selectCollection = state => state.collection || initialState;
-
-const makeSelectPhrases = () =>
+export const makeSelectPhrases = () =>
   createSelector(
-    selectCollection,
+    selectCollectionDomain,
     globalState => globalState.phrases,
   );
 
-const makeSelectLoading = () =>
+export const makeSelectLoading = () =>
   createSelector(
-    selectCollection,
+    selectCollectionDomain,
     globalState => globalState.loading,
   );
 
-const makeSelectError = () =>
+export const makeSelectError = () =>
   createSelector(
-    selectCollection,
+    selectCollectionDomain,
     globalState => globalState.error,
   );
-
-export { makeSelectPhrases, makeSelectLoading, makeSelectError };
