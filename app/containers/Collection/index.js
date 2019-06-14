@@ -20,7 +20,7 @@ import {
   makeSelectError,
 } from './selectors';
 
-// import DisplayField from '../../components/DisplayField';
+import DisplayField from '../../components/DisplayField';
 import { Wrapper, DisplayTitle } from '../../components/Styling/PhrasesStyle';
 
 const key = 'collection';
@@ -38,17 +38,15 @@ export function Collection({ phrases, loading, sendGetPhrases }) {
   useInjectSaga({ key, saga });
 
   useEffect(() => {
-    // debugger;
     if (phrases.length === 0) sendGetPhrases();
   }, []);
 
-  if (loading) {
+  if (!loading) {
     // If phrases have been loaded, render the following:
     loaded = (
       <Wrapper>
         <DisplayTitle>Collected Phrases</DisplayTitle>
-        {/* <DisplayField phrases={phrases} /> */}
-        {phrases}
+        <DisplayField phrases={phrases} />
       </Wrapper>
     );
   } else {
@@ -61,7 +59,7 @@ export function Collection({ phrases, loading, sendGetPhrases }) {
     );
   }
 
-  return <Wrapper>{loading === true ? loaded : notLoaded}</Wrapper>;
+  return <Wrapper>{loading === true ? notLoaded : loaded}</Wrapper>;
 }
 
 Collection.propTypes = {

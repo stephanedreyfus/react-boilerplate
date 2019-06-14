@@ -10,7 +10,7 @@ import {
 
 export const initialState = {
   phrases: [],
-  loading: false,
+  loading: true,
   error: false,
 };
 
@@ -22,12 +22,12 @@ const collectionReducer = (state = initialState, action) =>
       case GET_PHRASES:
         break;
       case GET_PHRASES_ERROR:
-        draft.loading = true;
+        draft.loading = false;
         draft.error = true;
         break;
       case GET_PHRASES_SUCCESS:
-        draft.loading = true;
-        draft.phrases = action.phrases.items;
+        draft.loading = false;
+        draft.phrases = action.phrases;
         break;
     }
   });
