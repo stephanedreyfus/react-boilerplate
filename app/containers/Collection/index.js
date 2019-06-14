@@ -41,21 +41,17 @@ export function Collection({ phrases, loading, sendGetPhrases }) {
     if (phrases.length === 0) sendGetPhrases();
   }, []);
 
-  if (!loading) {
-    // If phrases have been loaded, render the following:
-    loaded = (
-      <Wrapper>
-        <DisplayTitle>Collected Phrases</DisplayTitle>
-        <DisplayField phrases={phrases} />
-      </Wrapper>
-    );
-  } else {
+  if (loading) {
     // FIXME Replace Loading phrase with loading graphic component
     // If no phrases are loaded, render the following:
-    notLoaded = (
-      <Wrapper>
-        <DisplayTitle>Loading Phrases, Please Wait</DisplayTitle>
-      </Wrapper>
+    notLoaded = <DisplayTitle>Loading Phrases, Please Wait</DisplayTitle>;
+  } else {
+    // If phrases have been loaded, render the following:
+    loaded = (
+      <>
+        <DisplayTitle>Collected Phrases</DisplayTitle>
+        <DisplayField phrases={phrases} />
+      </>
     );
   }
 

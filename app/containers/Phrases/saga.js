@@ -9,7 +9,7 @@ const API_URL = 'http://localhost:3001/';
 
 function* postPhrase(data) {
   try {
-    const res = yield axios.post(`${API_URL}Phrases`, { phrase: data.payload });
+    const res = yield axios.post(`${API_URL}phrases`, { phrase: data.payload });
     yield put(addPhrase(res));
   } catch (err) {
     yield put(phraseLoadingError(err));
