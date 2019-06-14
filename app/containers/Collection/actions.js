@@ -14,15 +14,14 @@ export function getPhrases() {
   };
 }
 
-export function getPhrasesError() {
-  return {
-    type: GET_PHRASES_ERROR,
-  };
-}
-
 export function getPhrasesSuccess(phrases) {
   return {
     type: GET_PHRASES_SUCCESS,
     phrases,
+  };
+}
+export function getPhrasesError() {
+  return {
+    type: GET_PHRASES_ERROR,
   };
 }

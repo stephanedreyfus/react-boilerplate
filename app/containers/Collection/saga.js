@@ -6,10 +6,7 @@ import request from 'utils/requests';
 
 import { getPhrasesError, getPhrasesSuccess } from './actions';
 import { GET_PHRASES } from './constants';
-
-// FIXME Because API_URL is used in two files already, create
-// file in utils to hold API address, then import.
-const API_URL = 'http://localhost:3001/';
+import { API_URL } from '../../utils/constants';
 
 export function* getPhrases() {
   try {

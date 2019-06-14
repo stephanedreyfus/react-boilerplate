@@ -2,7 +2,7 @@
  * Phrase actions
  */
 
-import { ADD_PHRASE, ADD_PHRASE_ERROR } from './constants';
+import { ADD_PHRASE, ADD_PHRASE_SUCCESS, ADD_PHRASE_ERROR } from './constants';
 
 export function addPhrase(phrase) {
   return {
@@ -11,9 +11,15 @@ export function addPhrase(phrase) {
   };
 }
 
-export function phraseLoadingError(error) {
+export function addPhraseSuccess(phrase) {
+  return {
+    type: ADD_PHRASE_SUCCESS,
+    phrase,
+  };
+}
+
+export function addPhraseError() {
   return {
     type: ADD_PHRASE_ERROR,
-    error,
   };
 }

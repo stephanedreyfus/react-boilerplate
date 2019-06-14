@@ -1,18 +1,16 @@
-/** In debugging stage there is a bad request I have only started to
- * explore. Currently only manage to get to error catching. */
-
 import { takeLatest, put, all } from 'redux-saga/effects';
 import axios from 'axios';
-import { phraseLoadingError, addPhrase } from 'containers/Phrases/actions';
+import { addPhraseError, addPhrase } from 'containers/Phrases/actions';
+import { API_URL } from '../../utils/constants';
 
-const API_URL = 'http://localhost:3001/';
+// Use axios or is there a way to use Boilerplate request api?
 
 function* postPhrase(data) {
   try {
     const res = yield axios.post(`${API_URL}phrases`, { phrase: data.payload });
     yield put(addPhrase(res));
   } catch (err) {
-    yield put(phraseLoadingError(err));
+    yield put(addPhraseError(err));
   }
 }
 
