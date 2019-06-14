@@ -1,6 +1,3 @@
-/** Did not complete a functioning add phrase sage in time,
- * therefore the retrieval saga will have to wait. */
-
 import { takeLatest, call, put } from 'redux-saga/effects';
 import request from 'utils/requests';
 

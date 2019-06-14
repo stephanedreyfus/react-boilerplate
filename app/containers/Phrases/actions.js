@@ -14,7 +14,7 @@ export function addPhrase(phrase) {
 export function addPhraseSuccess(phrase) {
   return {
     type: ADD_PHRASE_SUCCESS,
-    phrase,
+    payload: phrase,
   };
 }
 
