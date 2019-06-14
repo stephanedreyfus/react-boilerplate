@@ -8,7 +8,7 @@ I want to thank Reed and DMI for inviting me to take this take home. I am curren
 
 ### Required Basic Tasks
 - [X] Create an app using React-Boilerplate
-- [ ] Page with UI to input a string saved to a database
+- [X] Page with UI to input a string saved to a database
 - [X] Page to display all stored strings
 - [X] Ability to navigate between pages
 - [X] Meaningful layout

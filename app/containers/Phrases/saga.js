@@ -1,4 +1,3 @@
-/* eslint-disable no-debugger */
 import { takeLatest, put } from 'redux-saga/effects';
 import axios from 'axios';
 
@@ -11,8 +10,7 @@ function* postPhrase(data) {
     const res = yield axios.post(`${API_URL}phrases`, {
       phrase: data.payload,
     });
-    debugger;
-    yield put(addPhraseSuccess(res));
+    yield put(addPhraseSuccess(res.data));
   } catch (err) {
     yield put(addPhraseError(err));
   }

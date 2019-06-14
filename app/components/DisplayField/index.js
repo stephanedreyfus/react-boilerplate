@@ -20,7 +20,7 @@ class DisplayField extends PureComponent {
       ));
       return toDisplay;
     }
-    return <ListItem>Unable to Load Phrases</ListItem>;
+    return <ListItem>Nothing To Display Yet</ListItem>;
   };
 
   render() {

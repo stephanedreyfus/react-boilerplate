@@ -6,7 +6,7 @@ const slectPhraseDomain = state => state.phrase || initialState;
 export const makeSelectPhrase = () =>
   createSelector(
     slectPhraseDomain,
-    globalState => globalState.phrases,
+    globalState => globalState.phrase,
   );
 
 export const makeSelectLoading = () =>

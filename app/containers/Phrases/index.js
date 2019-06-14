@@ -26,29 +26,22 @@ import { Wrapper, DisplayTitle } from '../../components/Styling/PhrasesStyle';
 
 const key = 'phrases';
 
-export function Phrases({ phrase, loading, sendAddPhrase }) {
+export function Phrases({ phrase, sendAddPhrase }) {
   useInjectReducer({ key, reducer });
   useInjectSaga({ key, saga });
-
-  // FIXME Not sure if necessary. As soon as a phrase is added, it should
-  // be in store (state.phrase).
-  // useEffect(() => {
-  //   if (phrase.length === 0 sendGetPhrases();
-  // }, []);
 
   return (
     <Wrapper>
       <DisplayTitle>Craft a Phrase</DisplayTitle>
       <InputForm addPhrase={sendAddPhrase} />
       <DisplayTitle>Most Recently Added</DisplayTitle>
-      <DisplayField phrase={phrase} loading={loading} />
+      <DisplayField phrases={phrase} />
     </Wrapper>
   );
 }
 
 Phrases.propTypes = {
   phrase: PropTypes.array,
-  loading: PropTypes.bool,
   sendAddPhrase: PropTypes.func,
 };
 

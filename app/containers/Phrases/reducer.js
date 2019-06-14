@@ -23,6 +23,7 @@ const phraseReducer = (state = initialState, action) =>
       case ADD_PHRASE_SUCCESS:
         draft.loading = false;
         draft.phrase = action.payload;
+        break;
     }
   });
 

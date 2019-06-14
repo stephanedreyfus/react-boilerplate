@@ -18,7 +18,6 @@ export const initialState = {
 const collectionReducer = (state = initialState, action) =>
   produce(state, draft => {
     switch (action.type) {
-      // FIXME Do we need this case?
       case GET_PHRASES:
         break;
       case GET_PHRASES_ERROR:
