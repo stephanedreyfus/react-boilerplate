@@ -2,6 +2,11 @@
 
 I want to thank Reed and DMI for inviting me to take this take home. I am currently unable to complete a great deal of the tasks listed below. I have learned a great deal about Redux-Saga, Reselect, styled components, the powerful tools of React-Boilerplate, and many other aspects of making full-stack apps with React. I appreciate the concept of sagas and plan to use them in future apps: they remove a lot of the potential confusion of Redux thunks. Wile I am keen on the concepts of React, Redux, sagas, and these many libraries, I am still not proficient in their execution.
 
+### A Note About Container Nomenclature
+
+I'm satisfied with the container "Collection", but I wanted to clarify why the container that accepts a new phrase is called "Phrases". When I started the exercise I was unaware of how Boilerplate builds components and containers, and simply started with a single component that would do both display and entry. When I got more comfortable with Boilerplate I separated my concerns, so to speak, and found myself with the fairly complex version of "Phrases" as it now exists. I have decided that, for the time being, refactoring the name of the container may create far more bugs than currently warranted. Given an unlimited amount of time I would probably refactor the name of the "Phrases" contained to "AddPhrase". 
+
+
 ## Update After Continuing Work
 
 (FIXME - add update)
@@ -48,16 +53,9 @@ npm test
 ```
 
 ## Given More Time and Experience
-Even after another week left to be done.
-- Working connection to Redux store
-    - Add a phrase to db and store
-    - Get phrases from DB to store
-- More clarity on reselect
-    - While I understand the concept I am still not clear on proper implementation.
 - Tests on the db
 - Test on the controlled string component
 - Modal for entering of new phrases
 - More styling
   - Background images
-  - Favicon
 - A more comphrensive README file.

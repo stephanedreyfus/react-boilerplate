@@ -22,25 +22,45 @@ import { addPhrase } from './actions';
 
 import DisplayField from '../../components/DisplayField';
 import InputForm from '../../components/InputForm';
-import { Wrapper, DisplayTitle } from '../../components/Styling/PhrasesStyle';
+import {
+  Wrapper,
+  DisplayTitle,
+  NoPhrase,
+} from '../../components/Styling/PhrasesStyle';
 
 const key = 'phrases';
+let loaded;
+let notLoaded;
 
-export function Phrases({ phrase, sendAddPhrase }) {
+export function Phrases({ phrase, loading, sendAddPhrase }) {
   useInjectReducer({ key, reducer });
   useInjectSaga({ key, saga });
+
+  if (loading) {
+    // FIXME Replace Loading phrase with loading graphic component
+    // If no phrases are loaded, render the following:
+    notLoaded = <NoPhrase>No Phrase Yet</NoPhrase>;
+  } else {
+    // If phrases have been loaded, render the following:
+    loaded = (
+      <>
+        <DisplayField phrases={phrase} />
+      </>
+    );
+  }
 
   return (
     <Wrapper>
       <DisplayTitle>Craft a Phrase</DisplayTitle>
       <InputForm addPhrase={sendAddPhrase} />
       <DisplayTitle>Most Recently Added</DisplayTitle>
-      <DisplayField phrases={phrase} />
+      {loading === true ? notLoaded : loaded}
     </Wrapper>
   );
 }
 
 Phrases.propTypes = {
+  loading: PropTypes.bool,
   phrase: PropTypes.array,
   sendAddPhrase: PropTypes.func,
 };

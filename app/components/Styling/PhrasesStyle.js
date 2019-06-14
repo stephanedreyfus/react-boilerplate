@@ -33,8 +33,14 @@ export const Display = styled.div`
 
 export const PhraseList = styled.ul`
   list-style: none;
+  margin-left: 3em;
 `;
 
 export const ListItem = styled.li`
   margin: auto;
+`;
+
+export const NoPhrase = styled.h4`
+  margin-left: 3em;
+  color: ${mainColor};
 `;
