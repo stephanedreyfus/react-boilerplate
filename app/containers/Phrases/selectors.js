@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 import { initialState } from './reducer';
 
-const slectPhraseDomain = state => state.phrase || initialState;
+const slectPhraseDomain = state => state.phrases || initialState;
 
 export const makeSelectPhrase = () =>
   createSelector(

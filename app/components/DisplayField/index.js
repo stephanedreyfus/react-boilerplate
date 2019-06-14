@@ -14,13 +14,13 @@ class DisplayField extends PureComponent {
    */
 
   renderPhraseCollection = phrases => {
-    if (phrases && phrases.length > 1) {
+    if (phrases && phrases.length >= 1) {
       const toDisplay = phrases.map(p => (
         <ListItem key={p.added}>{p.phrase}</ListItem>
       ));
       return toDisplay;
     }
-    return <ListItem>Nothing To Display Yet</ListItem>;
+    return <ListItem>No Phrases Loaded</ListItem>;
   };
 
   render() {
