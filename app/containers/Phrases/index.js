@@ -65,7 +65,6 @@ Phrases.propTypes = {
   sendAddPhrase: PropTypes.func,
 };
 
-// FIXME Implement getting latest addition from state
 const mapStateToProps = createStructuredSelector({
   phrase: makeSelectPhrase(),
   loading: makeSelectLoading(),
