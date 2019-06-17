@@ -22,7 +22,7 @@ describe('phraseReducer', () => {
     const expectedResult = produce(state, draft => {
       draft.loading = true;
       draft.error = false;
-      draft.phrases = [];
+      draft.phrase = [];
     });
     expect(phraseReducer(state, addPhrase())).toEqual(expectedResult);
   });
@@ -31,7 +31,7 @@ describe('phraseReducer', () => {
     const expectedResult = produce(state, draft => {
       draft.loading = false;
       draft.error = false;
-      draft.phrases = ['test'];
+      draft.phrase = ['test'];
     });
     expect(phraseReducer(state, addPhraseSuccess(['test']))).toEqual(
       expectedResult,
@@ -42,7 +42,7 @@ describe('phraseReducer', () => {
     const expectedResult = produce(state, draft => {
       draft.loading = false;
       draft.error = true;
-      draft.phrases = [];
+      draft.phrase = [];
     });
     expect(phraseReducer(state, addPhraseError())).toEqual(expectedResult);
   });

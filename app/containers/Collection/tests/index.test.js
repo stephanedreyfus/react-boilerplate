@@ -2,6 +2,7 @@ import React from 'react';
 import { render } from 'react-testing-library';
 
 import { Collection } from '../index';
+import { DisplayTitle } from '../../../components/Styling/PhrasesStyle';
 
 describe('<Collection />', () => {
   it('Expect to not log errors in console', () => {
@@ -15,6 +16,14 @@ describe('<Collection />', () => {
     const {
       container: { firstChild },
     } = render(<Collection />);
+    expect(firstChild).toMatchSnapshot();
+  });
+
+  it('should render its heading', () => {
+    const {
+      container: { firstChild },
+    } = render(<DisplayTitle>Loading Phrases, Please Wait</DisplayTitle>);
+
     expect(firstChild).toMatchSnapshot();
   });
 });

@@ -61,11 +61,13 @@ npm test
     - Reducer test in `Collection/test/reducer.test.js`
 - To Collection container:
     - Action tests in `Collection/test/actions.test.js`
-    - Reducer test in `Collection/test/reducer.test.js`
+    - Reducer tests in `Collection/test/reducer.test.js`
+    - Selector tests in `Collection/test/selectors.test.js`
 
 ## Given More Time and Experience
 - Tests on the db
-- Test on the controlled string component
+- Test on the controlled input component
+- Refactor input component to be controlled by `Redux store` and not `local state`
 - Modal for entering of new phrases
 - More styling
   - Background images

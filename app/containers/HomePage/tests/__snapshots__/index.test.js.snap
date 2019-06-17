@@ -1,9 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<HomePage /> should render and match the snapshot 1`] = `
-<h1>
-  <span>
-    This is the HomePage container!
-  </span>
-</h1>
+<section
+  class="HomePageStyle__Wrapper-vuxg4d-0 loEGMV"
+>
+  <h1
+    class="HomePageStyle__Greeting-vuxg4d-1 jYPoWS"
+  >
+    Welcome to phrase collector!
+    <br />
+    <br />
+    <a
+      class="HomePageStyle__Link-vuxg4d-2 iKUBPI"
+      href="/phrases"
+    >
+      Add
+    </a>
+     and 
+    <a
+      class="HomePageStyle__Link-vuxg4d-2 iKUBPI"
+      href="/collection"
+    >
+      See
+    </a>
+     
+    Phrases
+  </h1>
+</section>
 `;

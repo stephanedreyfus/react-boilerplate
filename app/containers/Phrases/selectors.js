@@ -1,22 +1,29 @@
 import { createSelector } from 'reselect';
 import { initialState } from './reducer';
 
-const slectPhraseDomain = state => state.phrases || initialState;
+const selectPhraseDomain = state => state.phrases || initialState;
 
-export const makeSelectPhrase = () =>
+const makeSelectPhrase = () =>
   createSelector(
-    slectPhraseDomain,
+    selectPhraseDomain,
     globalState => globalState.phrase,
   );
 
-export const makeSelectLoading = () =>
+const makeSelectLoading = () =>
   createSelector(
-    slectPhraseDomain,
+    selectPhraseDomain,
     globalState => globalState.loading,
   );
 
-export const makeSelectError = () =>
+const makeSelectError = () =>
   createSelector(
-    slectPhraseDomain,
+    selectPhraseDomain,
     globalState => globalState.error,
   );
+
+export {
+  selectPhraseDomain,
+  makeSelectPhrase,
+  makeSelectLoading,
+  makeSelectError,
+};

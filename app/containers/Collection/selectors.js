@@ -3,20 +3,27 @@ import { initialState } from './reducer';
 
 const selectCollectionDomain = state => state.collection || initialState;
 
-export const makeSelectPhrases = () =>
+const makeSelectPhrases = () =>
   createSelector(
     selectCollectionDomain,
     globalState => globalState.phrases,
   );
 
-export const makeSelectLoading = () =>
+const makeSelectLoading = () =>
   createSelector(
     selectCollectionDomain,
     globalState => globalState.loading,
   );
 
-export const makeSelectError = () =>
+const makeSelectError = () =>
   createSelector(
     selectCollectionDomain,
     globalState => globalState.error,
   );
+
+export {
+  selectCollectionDomain,
+  makeSelectPhrases,
+  makeSelectLoading,
+  makeSelectError,
+};
