@@ -36,7 +36,7 @@ export function Collection({ phrases, loading, sendGetPhrases }) {
   }, []);
 
   if (loading) {
-    // FIXME Replace Loading phrase with loading graphic component
+    // FUTUREFIX Replace Loading phrase with loading graphic component
     // If no phrases are loaded, render the following:
     notLoaded = <DisplayTitle>Loading Phrases, Please Wait</DisplayTitle>;
   } else {

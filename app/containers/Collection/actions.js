@@ -1,7 +1,3 @@
-/*
- * Collection actions
- */
-
 import {
   GET_PHRASES,
   GET_PHRASES_SUCCESS,

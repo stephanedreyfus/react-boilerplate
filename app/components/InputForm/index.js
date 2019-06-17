@@ -31,7 +31,7 @@ class InputForm extends PureComponent {
     e.preventDefault();
     // Does not accept phrase if it contains only spaces.
     if (this.state === undefined || this.state.phrase.trim === undefined) {
-      // FIXME Make this a custom alert or a modal
+      // FUTUREFIX Make this a custom alert or a modal
       alert('Please use at least one character or number.');
     } else {
       this.props.addPhrase(this.state.phrase);

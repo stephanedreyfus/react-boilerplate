@@ -1,7 +1,3 @@
-/*
- * Phrase actions
- */
-
 import { ADD_PHRASE, ADD_PHRASE_SUCCESS, ADD_PHRASE_ERROR } from './constants';
 
 export function addPhrase(phrase) {

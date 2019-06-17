@@ -58,8 +58,10 @@ npm test
 ## Tests Added
 - To Phrases container:
     - Action tests in `Phrases/tests/actions.test.js`
+    - Reducer test in `Collection/test/reducer.test.js`
 - To Collection container:
     - Action tests in `Collection/test/actions.test.js`
+    - Reducer test in `Collection/test/reducer.test.js`
 
 ## Given More Time and Experience
 - Tests on the db

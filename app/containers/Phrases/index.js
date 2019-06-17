@@ -37,7 +37,7 @@ export function Phrases({ phrase, loading, sendAddPhrase }) {
   useInjectSaga({ key, saga });
 
   if (loading) {
-    // FIXME Replace Loading phrase with loading graphic component
+    // FUTUREFIX Replace Loading phrase with loading graphic component
     // If no phrases are loaded, render the following:
     notLoaded = <NoPhrase>No Phrase Yet</NoPhrase>;
   } else {

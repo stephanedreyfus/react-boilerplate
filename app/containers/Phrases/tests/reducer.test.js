@@ -1,32 +1,49 @@
-// import produce from 'immer';
-import stringReducer from '../reducer';
-// import { someAction } from '../actions';
+import produce from 'immer';
+import phraseReducer from '../reducer';
+import { addPhrase, addPhraseSuccess, addPhraseError } from '../actions';
 
 /* eslint-disable default-case, no-param-reassign */
-describe('stringReducer', () => {
+describe('phraseReducer', () => {
   let state;
   beforeEach(() => {
     state = {
-      // default state params here
+      phrase: [],
+      loading: true,
+      error: false,
     };
   });
 
   it('returns the initial state', () => {
     const expectedResult = state;
-    expect(stringReducer(undefined, {})).toEqual(expectedResult);
+    expect(phraseReducer(undefined, {})).toEqual(expectedResult);
   });
 
-  /**
-   * Example state change comparison
-   *
-   * it('should handle the someAction action correctly', () => {
-   *   const expectedResult = produce(state, draft => {
-   *     draft.loading = true;
-   *     draft.error = false;
-   *     draft.userData.nested = false;
-   *   });
-   *
-   *   expect(appReducer(state, someAction())).toEqual(expectedResult);
-   * });
-   */
+  it('should handle the getPhrases action correctly', () => {
+    const expectedResult = produce(state, draft => {
+      draft.loading = true;
+      draft.error = false;
+      draft.phrases = [];
+    });
+    expect(phraseReducer(state, addPhrase())).toEqual(expectedResult);
+  });
+
+  it('should handle the getPhrasesSuccess action correctly', () => {
+    const expectedResult = produce(state, draft => {
+      draft.loading = false;
+      draft.error = false;
+      draft.phrases = ['test'];
+    });
+    expect(phraseReducer(state, addPhraseSuccess(['test']))).toEqual(
+      expectedResult,
+    );
+  });
+
+  it('should handle the getPhrasesError action correctly', () => {
+    const expectedResult = produce(state, draft => {
+      draft.loading = false;
+      draft.error = true;
+      draft.phrases = [];
+    });
+    expect(phraseReducer(state, addPhraseError())).toEqual(expectedResult);
+  });
 });

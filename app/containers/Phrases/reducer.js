@@ -1,6 +1,3 @@
-/*
- * Phrase reducer
- */
 import produce from 'immer';
 import { ADD_PHRASE, ADD_PHRASE_SUCCESS, ADD_PHRASE_ERROR } from './constants';
 

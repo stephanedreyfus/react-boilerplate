@@ -1,6 +1,3 @@
-/*
- * Collection reducer
- */
 import produce from 'immer';
 import {
   GET_PHRASES,
