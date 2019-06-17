@@ -1,13 +1,27 @@
-import { defaultAction } from '../actions';
-import { DEFAULT_ACTION } from '../constants';
+import { addPhrase, addPhraseSuccess, addPhraseError } from '../actions';
+import { ADD_PHRASE, ADD_PHRASE_SUCCESS, ADD_PHRASE_ERROR } from '../constants';
 
-describe('String actions', () => {
-  describe('Default Action', () => {
-    it('has a type of DEFAULT_ACTION', () => {
+describe('Phrases Container actions', () => {
+  describe('Phrases Actions', () => {
+    it('has a type of ADD_PHRASE', () => {
       const expected = {
-        type: DEFAULT_ACTION,
+        type: ADD_PHRASE,
+        payload: 'test',
       };
-      expect(defaultAction()).toEqual(expected);
+      expect(addPhrase('test')).toEqual(expected);
+    });
+    it('has a type of ADD_PHRASE_SUCCESS', () => {
+      const expected = {
+        type: ADD_PHRASE_SUCCESS,
+        payload: 'test',
+      };
+      expect(addPhraseSuccess('test')).toEqual(expected);
+    });
+    it('has a type of ADD_PHRASE_ERROR', () => {
+      const expected = {
+        type: ADD_PHRASE_ERROR,
+      };
+      expect(addPhraseError()).toEqual(expected);
     });
   });
 });

@@ -1,6 +1,6 @@
 /**
  * Container for adding phrases.
- * Eventually will display most recently added phrase.
+ * Also displays most recently added phrase.
  */
 
 import React, { memo } from 'react';

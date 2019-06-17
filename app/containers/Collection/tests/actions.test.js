@@ -1,13 +1,29 @@
-import { defaultAction } from '../actions';
-import { DEFAULT_ACTION } from '../constants';
+import { getPhrases, getPhrasesSuccess, getPhrasesError } from '../actions';
+import {
+  GET_PHRASES,
+  GET_PHRASES_SUCCESS,
+  GET_PHRASES_ERROR,
+} from '../constants';
 
 describe('Collection actions', () => {
-  describe('Default Action', () => {
-    it('has a type of DEFAULT_ACTION', () => {
+  describe('Collection Actions', () => {
+    it('has a type of GET_PHRASES', () => {
       const expected = {
-        type: DEFAULT_ACTION,
+        type: GET_PHRASES,
       };
-      expect(defaultAction()).toEqual(expected);
+      expect(getPhrases()).toEqual(expected);
+    });
+    it('has a type of GET_PHRASES_SUCCESS', () => {
+      const expected = {
+        type: GET_PHRASES_SUCCESS,
+      };
+      expect(getPhrasesSuccess()).toEqual(expected);
+    });
+    it('has a type of GET_PHRASES_ERROR', () => {
+      const expected = {
+        type: GET_PHRASES_ERROR,
+      };
+      expect(getPhrasesError()).toEqual(expected);
     });
   });
 });
