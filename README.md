@@ -59,16 +59,18 @@ npm test
 ## Tests Added
 - To Phrases container:
     - Action tests in `Phrases/tests/actions.test.js`
-    - Reducer test in `Collection/test/reducer.test.js`
+    - Reducer test in `Collection/tests/reducer.test.js`
 - To Collection container:
-    - Action tests in `Collection/test/actions.test.js`
-    - Reducer tests in `Collection/test/reducer.test.js`
-    - Selector tests in `Collection/test/selectors.test.js`
-    - Saga tests in `Collection/test/saga.test.js`
+    - Action tests in `Collection/tests/actions.test.js`
+    - Reducer tests in `Collection/tests/reducer.test.js`
+    - Selector tests in `Collection/tests/selectors.test.js`
+    - Saga tests in `Collection/tests/saga.test.js`
+- To Input component:
+    - Index tests in `InputForm/tests/index.test.js`
 
 ## Given More Time and Experience
 - Tests on the db
-- Tests on the input form
+- More tests on the input form
 - Test on the controlled input component
 - Refactor input component to be controlled by `Redux store` and not `local state`
 - Modal for entering of new phrases
