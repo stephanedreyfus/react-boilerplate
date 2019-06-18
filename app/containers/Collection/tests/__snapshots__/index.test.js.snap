@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Collection /> should render its heading 1`] = `
+<div
+  class="PhrasesStyle__DisplayTitle-sc-13tp1yz-1 gxwBMv"
+>
+  Loading Phrases, Please Wait
+</div>
+`;

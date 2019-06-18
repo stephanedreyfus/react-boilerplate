@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Phrases /> Should render and match the snapshot 1`] = `
+<section
+  class="PhrasesStyle__Wrapper-sc-13tp1yz-0 cmakpc"
+>
+  <div
+    class="PhrasesStyle__DisplayTitle-sc-13tp1yz-1 gxwBMv"
+  >
+    Craft a Phrase
+  </div>
+  <form
+    class="InputStyle__Form-sc-1fndb37-0 jGAOnu"
+  >
+    <div
+      class="InputStyle__LabelInputWrapper-sc-1fndb37-1 dkuNvw"
+    >
+      <label
+        class="InputStyle__Label-sc-1fndb37-2 YEXxD"
+        for="phrase"
+      >
+        Enter a Phrase Below
+      </label>
+      <input
+        class="InputStyle__Input-sc-1fndb37-3 dGvyjB"
+        id="phrase"
+        placeholder="Write anything at all!"
+        type="text"
+        value=""
+      />
+    </div>
+    <button
+      class="InputStyle__PhraseButton-sc-1fndb37-4 cEzmui"
+    >
+      Add Phrase!
+    </button>
+  </form>
+  <div
+    class="PhrasesStyle__DisplayTitle-sc-13tp1yz-1 gxwBMv"
+  >
+    Most Recently Added
+  </div>
+  <h4
+    class="PhrasesStyle__NoPhrase-sc-13tp1yz-5 ixKFje"
+  >
+    No Phrase Yet
+  </h4>
+</section>
+`;
