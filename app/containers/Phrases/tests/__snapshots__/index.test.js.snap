@@ -2,7 +2,7 @@
 
 exports[`<Phrases /> Should render and match the snapshot 1`] = `
 <section
-  class="PhrasesStyle__Wrapper-sc-13tp1yz-0 cmakpc"
+  class="PhrasesStyle__Wrapper-sc-13tp1yz-0 sADTq"
 >
   <div
     class="PhrasesStyle__DisplayTitle-sc-13tp1yz-1 gxwBMv"
@@ -31,6 +31,7 @@ exports[`<Phrases /> Should render and match the snapshot 1`] = `
     </div>
     <button
       class="InputStyle__PhraseButton-sc-1fndb37-4 cEzmui"
+      type="submit"
     >
       Add Phrase!
     </button>

@@ -55,7 +55,9 @@ class InputForm extends PureComponent {
             onChange={this.handleChange}
           />
         </LabelInputWrapper>
-        <PhraseButton onClick={this.handleSubmit}>Add Phrase!</PhraseButton>
+        <PhraseButton type="submit" onClick={this.handleSubmit}>
+          Add Phrase!
+        </PhraseButton>
       </Form>
     );
   }

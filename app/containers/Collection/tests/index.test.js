@@ -28,7 +28,7 @@ describe('<Collection />', () => {
     } = render(
       <Provider store={store}>
         <IntlProvider locale="en">
-          <Collection />
+          <Collection phrases={['test']} />
         </IntlProvider>
       </Provider>,
     );

@@ -1,5 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Collection /> Should render and match the snapshot 1`] = `
+<section
+  class="PhrasesStyle__Wrapper-sc-13tp1yz-0 sADTq"
+>
+  <div
+    class="PhrasesStyle__DisplayTitle-sc-13tp1yz-1 gxwBMv"
+  >
+    Collected Phrases
+  </div>
+  <ul
+    class="PhrasesStyle__PhraseList-sc-13tp1yz-3 dfJTiS"
+  >
+    <li
+      class="PhrasesStyle__ListItem-sc-13tp1yz-4 hWFumD"
+    />
+  </ul>
+</section>
+`;
+
 exports[`<Collection /> should render its heading 1`] = `
 <div
   class="PhrasesStyle__DisplayTitle-sc-13tp1yz-1 gxwBMv"

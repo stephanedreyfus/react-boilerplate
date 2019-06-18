@@ -9,12 +9,19 @@
 import React from 'react';
 import { render } from 'react-testing-library';
 import { IntlProvider } from 'react-intl';
-// import 'jest-dom/extend-expect'; // add some helpful assertions
 
+import Enzyme, { mount } from 'enzyme';
+import toJson from 'enzyme-to-json';
+import Adapter from 'enzyme-adapter-react-16';
 import InputForm from '../index';
 import { DEFAULT_LOCALE } from '../../../i18n';
 
+Enzyme.configure({ adapter: new Adapter() });
+
 describe('<InputForm />', () => {
+  let wrapper;
+  let phraseInput;
+
   it('Expect to not log errors in console', () => {
     const spy = jest.spyOn(global.console, 'error');
     render(
@@ -25,14 +32,26 @@ describe('<InputForm />', () => {
     expect(spy).not.toHaveBeenCalled();
   });
 
-  it.skip('Should render and match the snapshot', () => {
-    const {
-      container: { firstChild },
-    } = render(
-      <IntlProvider locale={DEFAULT_LOCALE}>
-        <InputForm />
-      </IntlProvider>,
-    );
-    expect(firstChild).toMatchSnapshot();
+  it('matches snapshot', () => {
+    expect(toJson(wrapper)).toMatchSnapshot();
+  });
+
+  it('Should change "phrase" in state', () => {
+    wrapper = mount(<InputForm />);
+    phraseInput = wrapper.find('#phrase').at(2);
+    phraseInput.instance().value = 'test phrase';
+    phraseInput.simulate('change');
+
+    expect(wrapper.state().phrase).toEqual('test phrase');
+  });
+
+  // FIXME Still debugging why the mocked submit will not function.
+  it('runs a mocked fn on submit', () => {
+    const submitFn = jest.fn();
+    wrapper = mount(<InputForm onClick={submitFn} />);
+    const form = wrapper.find('form');
+    form.simulate('submit');
+
+    expect(submitFn).toHaveBeenCalled();
   });
 });
