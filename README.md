@@ -79,3 +79,11 @@ npm test
   - Modal or other warning type instead of an `alert` on the input page.
   - Animated graphic instead of text for when a page is loading.
 - A more comphrensive README file.
+
+## Notes and Suggestions From Reed
+Instead of blank initialized variables,
+Have the conditional components be their own components and import.
+
+If error is true need more than a ternary.
+
+Error handling!??! on both Phrases and Collection.
